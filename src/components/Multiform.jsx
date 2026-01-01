@@ -15,6 +15,11 @@ function Multiform() {
     email:"",
     confirmEmail:"",
     phoneNo:"",
+    streetAddress:"",
+    city:"", 
+    state:"", 
+    postalCode:"", 
+    country:""
   });
 
   const [step, setStep] = useState(1);
