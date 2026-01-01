@@ -1,10 +1,10 @@
 import React from "react";
 
-const PersonalInfo = ({signupForm,hangleChange}) => {
+const PersonalInfo = ({signupForm,handleChange}) => {
   const currentYear = new Date().getFullYear();
 
   console.log(signupForm)
-  const {firstName}=signupForm;
+  const {firstName, lastName, gender}=signupForm;
   
   return (
     <>
@@ -19,12 +19,16 @@ const PersonalInfo = ({signupForm,hangleChange}) => {
           <input
             type="text"
             name="firstName"
+            value={firstName}
+            onChange={handleChange}
             placeholder="Enter Your First Name"
             className="flex-1 px-4 py-2 rounded-lg border border-gray-300 bg-white text-black focus:outline-none focus:ring-2 focus:ring-green-400"
           />
           <input
             type="text"
-            name="lasttName"
+            name="lastName"
+            value={lastName}
+            onChange={handleChange}
             placeholder="Enter Your Last Name"
             className="flex-1 px-4 py-2 rounded-lg border border-gray-300 bg-white text-black focus:outline-none focus:ring-2 focus:ring-green-400"
           />
@@ -70,7 +74,7 @@ const PersonalInfo = ({signupForm,hangleChange}) => {
 
         {/* Gender */}
         <div className="flex gap-4">
-          <select name="gender" className="flex-1 px-4 py-2 rounded-lg border border-gray-300 bg-white text-black focus:outline-none focus:ring-2 focus:ring-green-400">
+          <select name="gender" value={gender} onChange={handleChange} className="flex-1 px-4 py-2 rounded-lg border border-gray-300 bg-white text-black focus:outline-none focus:ring-2 focus:ring-green-400">
             <option value="">Select Gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
