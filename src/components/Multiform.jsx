@@ -12,6 +12,9 @@ function Multiform() {
     month: "",
     year: "",
     gender: "",
+    email:"",
+    confirmEmail:"",
+    phoneNo:"",
   });
 
   const [step, setStep] = useState(1);
@@ -29,7 +32,7 @@ function Multiform() {
   const nextStep = () => {
     if (step === 3) {
       // submit data to backend
-      return
+      return;
     } else {
       setStep((prev) => {
         return prev + 1;
@@ -37,11 +40,11 @@ function Multiform() {
     }
   };
 
-  const backStep=()=>{
-    setStep((prev)=>{
-      return prev-1;
-    })
-  }
+  const backStep = () => {
+    setStep((prev) => {
+      return prev - 1;
+    });
+  };
 
   return (
     <>
@@ -57,8 +60,18 @@ function Multiform() {
                   handleChange={handleChange}
                 />
               ),
-              2: <ContactInfo />,
-              3: <LocationInfo />,
+              2: (
+                <ContactInfo
+                  signupForm={signupForm}
+                  handleChange={handleChange}
+                />
+              ),
+              3: (
+                <LocationInfo
+                  signupForm={signupForm}
+                  handleChange={handleChange}
+                />
+              ),
             }[step]
           }
 
@@ -79,9 +92,7 @@ function Multiform() {
               onClick={nextStep}
               className="bg-green-400 hover:bg-green-500 text-black px-6 py-2 rounded-lg font-medium"
             >
-              {
-                step===3? 'Submit' : 'Next →'
-              }
+              {step === 3 ? "Submit" : "Next →"}
             </button>
           </div>
         </div>
