@@ -4,7 +4,7 @@ const PersonalInfo = ({signupForm,handleChange}) => {
   const currentYear = new Date().getFullYear();
 
   console.log(signupForm)
-  const {firstName, lastName, gender}=signupForm;
+  const {firstName, lastName, date, month, year, gender}=signupForm;
   
   return (
     <>
@@ -36,14 +36,14 @@ const PersonalInfo = ({signupForm,handleChange}) => {
 
         {/* Date of Birth */}
         <div className="flex gap-4">
-          <select className="flex-1 px-4 py-2 rounded-lg border border-gray-300 bg-white text-black focus:outline-none focus:ring-2 focus:ring-green-400">
+          <select name="date" value={date} onChange={handleChange} className="flex-1 px-4 py-2 rounded-lg border border-gray-300 bg-white text-black focus:outline-none focus:ring-2 focus:ring-green-400">
             <option value="">DD</option>
             {Array.from({ length: 31 }, (_, i) => (
-              <option key={i + 1}>{i + 1}</option>
+              <option key={i + 1} value={i+1}>{i + 1}</option>
             ))}
           </select>
 
-          <select className="flex-1 px-4 py-2 rounded-lg border border-gray-300 bg-white text-black focus:outline-none focus:ring-2 focus:ring-green-400">
+          <select name="month" value={month} onChange={handleChange} className="flex-1 px-4 py-2 rounded-lg border border-gray-300 bg-white text-black focus:outline-none focus:ring-2 focus:ring-green-400">
             <option value="">MM</option>
             {[
               "Jan",
@@ -59,15 +59,15 @@ const PersonalInfo = ({signupForm,handleChange}) => {
               "Nov",
               "Dec",
             ].map((m, i) => (
-              <option key={i}>{m}</option>
+              <option key={i} value={i}>{m}</option>
             ))}
           </select>
 
-          <select className="flex-1 px-4 py-2 rounded-lg border border-gray-300 bg-white text-black focus:outline-none focus:ring-2 focus:ring-green-400">
+          <select name="year" value={year} onChange={handleChange} className="flex-1 px-4 py-2 rounded-lg border border-gray-300 bg-white text-black focus:outline-none focus:ring-2 focus:ring-green-400">
             <option value="">YYYY</option>
             {Array.from({ length: 100 }, (_, i) => {
               const year = currentYear - i;
-              return <option key={year}>{year}</option>;
+              return <option key={year} value={year}>{year}</option>;
             })}
           </select>
         </div>

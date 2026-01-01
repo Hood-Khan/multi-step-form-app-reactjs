@@ -7,6 +7,9 @@ function Multiform() {
     const [signupForm,setSignupForm]=useState({
     firstName:"",
     lastName:"",
+    date:"",
+    month:"",
+    year:"",
     gender:""
   })
 
